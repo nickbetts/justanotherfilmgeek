@@ -54,7 +54,7 @@ export default async function Home() {
           {/* Video background */}
           <video
             className="hero-video-bg"
-            src="/videoplayback.mp4"
+            src="/videoplayback-ezgif.com-gif-maker.mp4"
             autoPlay
             muted
             loop
