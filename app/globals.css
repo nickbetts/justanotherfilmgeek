@@ -221,7 +221,7 @@ a { color: inherit; text-decoration: none; }
   object-fit: cover;
   object-position: center;
   z-index: 0;
-  transform: scale(1.25);
+  transform: scale(1.38);
 }
 
 .hero-video-overlay {
@@ -233,11 +233,198 @@ a { color: inherit; text-decoration: none; }
     linear-gradient(to right, rgba(5,5,7,0.6) 0%, transparent 55%);
 }
 
+/* scan lines over video */
+.hero-video-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0,0,0,0.06) 3px,
+    rgba(0,0,0,0.06) 4px
+  );
+  pointer-events: none;
+}
+
 .hero-content {
   position: relative;
   z-index: 2;
   padding: 5rem 0 4rem;
 }
+
+/* ── GLITCH HEADLINE ─────────────────────────────── */
+.hero-headline {
+  position: relative;
+}
+
+.hero-headline::before,
+.hero-headline::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: transparent;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  color: var(--ink);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-headline::before {
+  left: 2px;
+  color: var(--accent);
+  clip-path: polygon(0 15%, 100% 15%, 100% 30%, 0 30%);
+  animation: glitch-1 4s infinite linear;
+  opacity: 0.6;
+}
+
+.hero-headline::after {
+  left: -2px;
+  color: #3b6fe8;
+  clip-path: polygon(0 60%, 100% 60%, 100% 72%, 0 72%);
+  animation: glitch-2 4s infinite linear;
+  opacity: 0.5;
+}
+
+@keyframes glitch-1 {
+  0%, 92%, 100% { transform: translateX(0); opacity: 0; }
+  93%            { transform: translateX(-3px); opacity: 0.6; }
+  95%            { transform: translateX(3px);  opacity: 0.6; }
+  97%            { transform: translateX(-2px); opacity: 0.6; }
+  99%            { transform: translateX(0);    opacity: 0; }
+}
+
+@keyframes glitch-2 {
+  0%, 90%, 100% { transform: translateX(0); opacity: 0; }
+  91%           { transform: translateX(3px);  opacity: 0.5; }
+  94%           { transform: translateX(-3px); opacity: 0.5; }
+  96%           { transform: translateX(2px);  opacity: 0.5; }
+  98%           { transform: translateX(0);    opacity: 0; }
+}
+
+/* ── NOW PLAYING BADGE ─────────────────────────────── */
+.now-playing {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid rgba(232,52,26,0.5);
+  background: rgba(232,52,26,0.1);
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.now-playing::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(232,52,26,0.2), transparent);
+  animation: badge-sweep 2.5s ease-in-out infinite;
+}
+
+@keyframes badge-sweep {
+  0%   { left: -100%; }
+  100% { left: 200%; }
+}
+
+.now-playing-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
+  animation: pulse-dot 1s ease-in-out infinite;
+}
+
+/* ── FILM FRAME CORNERS ─────────────────────────────── */
+.poster-item::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  z-index: 3;
+  pointer-events: none;
+  border: 1.5px solid rgba(255,255,255,0);
+  border-radius: 2px;
+  transition: border-color 300ms;
+  background:
+    linear-gradient(to right, rgba(255,255,255,0.7) 12px, transparent 12px) top left / 100% 1.5px no-repeat,
+    linear-gradient(to right, rgba(255,255,255,0.7) 12px, transparent 12px) top right / 100% 1.5px no-repeat,
+    linear-gradient(to bottom, rgba(255,255,255,0.7) 12px, transparent 12px) top left / 1.5px 100% no-repeat,
+    linear-gradient(to bottom, rgba(255,255,255,0.7) 12px, transparent 12px) bottom left / 1.5px 100% no-repeat,
+    linear-gradient(to left, rgba(255,255,255,0.7) 12px, transparent 12px) bottom right / 100% 1.5px no-repeat,
+    linear-gradient(to left, rgba(255,255,255,0.7) 12px, transparent 12px) bottom left / 100% 1.5px no-repeat,
+    linear-gradient(to top, rgba(255,255,255,0.7) 12px, transparent 12px) top right / 1.5px 100% no-repeat,
+    linear-gradient(to top, rgba(255,255,255,0.7) 12px, transparent 12px) bottom right / 1.5px 100% no-repeat;
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.poster-item:hover::before {
+  opacity: 1;
+}
+
+/* ── REEL COUNTER ─────────────────────────────── */
+.reel-counter {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.reel-counter::before {
+  content: "";
+  width: 20px;
+  height: 1px;
+  background: rgba(255,255,255,0.2);
+}
+
+/* ── FILM STRIP TICKER ─────────────────────────────── */
+.ticker-wrap {
+  position: relative;
+}
+
+.ticker-wrap::before,
+.ticker-wrap::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent 14px,
+    var(--surface-3) 14px,
+    var(--surface-3) 20px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ticker-wrap::before { top: 0; }
+.ticker-wrap::after  { bottom: 0; }
 
 .hero-grid {
   display: grid;

@@ -65,11 +65,15 @@ export default async function Home() {
           <div className="shell hero-content">
           <div className="hero-grid">
             <div>
+              <div className="now-playing">
+                <span className="now-playing-dot" />
+                Now Playing
+              </div>
               <div className="hero-kicker">
                 <span className="kicker-line" />
                 TikTok Creator · Media Pack 2025
               </div>
-              <h1 className="hero-headline">
+              <h1 className="hero-headline" data-text="Just Another&#10;Film Geek">
                 Just Another<br />
                 <span className="hero-headline-accent">Film Geek</span>
               </h1>
@@ -131,6 +135,7 @@ export default async function Home() {
               })}
             </div>
           </div>
+          <div className="reel-counter" aria-hidden="true">REEL 01 · JAFG · 2025</div>
           </div>
         </section>
 
