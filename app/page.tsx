@@ -15,6 +15,19 @@ export default async function Home() {
 
   return (
     <>
+      {/* ── FILM COUNTDOWN LEADER ─────── */}
+      <div className="countdown-overlay" aria-hidden="true">
+        <div className="countdown-hairlines" />
+        <div className="countdown-circle">
+          <span className="countdown-num">5</span>
+          <span className="countdown-num">4</span>
+          <span className="countdown-num">3</span>
+          <span className="countdown-num">2</span>
+          <span className="countdown-num">1</span>
+        </div>
+        <p className="countdown-label">JUST ANOTHER FILM GEEK · MEDIA PACK 2026</p>
+      </div>
+
       {/* Aurora background */}
       <div className="aurora" aria-hidden="true">
         <div className="aurora-orb aurora-orb-1" />
@@ -150,12 +163,6 @@ export default async function Home() {
           </div>
         </div>
 
-        <div className="clapper-divider" aria-hidden="true">
-          <span>SCENE 01</span>
-          <span>TAKE 01</span>
-          <span>INT · JAFG HQ</span>
-        </div>
-
         {/* ── STATS ─────── */}
         <section className="section">
           <div className="shell">
@@ -163,25 +170,17 @@ export default async function Home() {
             <h2 className="section-heading">The Stats</h2>
             <p className="section-sub">Real numbers, no inflated vanity metrics.</p>
 
-            <div className="bento-grid">
-              {d.stats.map((stat) => (
-                <div className="bento-card" key={stat.label}>
-                  <span className="bento-label">{stat.label}</span>
-                  <span className="bento-value">{stat.value}</span>
-                  {stat.label === "Avg Engagement" && (
-                    <span className="bento-tag">Above avg</span>
-                  )}
+            <div className="scene-grid">
+              {d.stats.map((stat, i) => (
+                <div className="scene-card" key={stat.label}>
+                  <span className="scene-num" aria-hidden="true">SCENE {String(i + 1).padStart(2, "0")}</span>
+                  <span className="scene-value">{stat.value}</span>
+                  <span className="scene-label">{stat.label}</span>
                 </div>
               ))}
             </div>
           </div>
         </section>
-
-        <div className="clapper-divider" aria-hidden="true">
-          <span>SCENE 02</span>
-          <span>TAKE 01</span>
-          <span>EXT · BEST CONTENT</span>
-        </div>
 
         {/* ── BEST CONTENT — film reel ─────── */}
         <section className="section reel-section">
@@ -200,8 +199,8 @@ export default async function Home() {
 
             <div className="reel-track">
               {d.bestContent.map((item, i) => (
+                <div className="reel-frame" key={i}>
                 <Link
-                  key={i}
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -233,6 +232,8 @@ export default async function Home() {
                     </div>
                   </div>
                 </Link>
+                <p className="reel-frame-label" aria-hidden="true">#{String(i + 1).padStart(2, "0")} · {item.views}</p>
+                </div>
               ))}
             </div>
 
@@ -242,12 +243,6 @@ export default async function Home() {
             </div>
           </div>
         </section>
-
-        <div className="clapper-divider" aria-hidden="true">
-          <span>SCENE 03</span>
-          <span>TAKE 01</span>
-          <span>INT · AUDIENCE INSIGHTS</span>
-        </div>
 
         {/* ── GROWTH + AUDIENCE ─────── */}
         <section className="section">
@@ -273,14 +268,39 @@ export default async function Home() {
                 ))}
               </div>
 
-              {/* Audience snapshot */}
-              <div className="audience-card">
-                {d.audience.map((line, i) => (
-                  <div className="audience-row" key={i}>
-                    <span className="audience-arrow">▸</span>
-                    <span>{line}</span>
-                  </div>
-                ))}
+              {/* Audience cinema seat map */}
+              <div className="cinema-theatre">
+                <div className="cinema-screen-wrap" aria-hidden="true">
+                  <div className="cinema-screen">SCREEN</div>
+                </div>
+                <div className="cinema-rows">
+                  {[
+                    { label: "18–24", pct: 45, cls: "accent" },
+                    { label: "25–34", pct: 27, cls: "amber" },
+                    { label: "35–44", pct: 18, cls: "muted" },
+                    { label: "45+",   pct: 10, cls: "dim" },
+                  ].map(({ label, pct, cls }) => {
+                    const total = 22;
+                    const filled = Math.round((pct / 100) * total);
+                    return (
+                      <div className="cinema-row" key={label}>
+                        <span className="cinema-row-label">{label}</span>
+                        <div className="cinema-seats">
+                          {Array.from({ length: total }).map((_, j) => (
+                            <span
+                              key={j}
+                              className={`cinema-seat ${
+                                j < filled ? `seat-${cls}` : "seat-empty"
+                              }`}
+                            />
+                          ))}
+                        </div>
+                        <span className="cinema-row-pct">{pct}%</span>
+                      </div>
+                    );
+                  })}
+                </div>
+                <p className="cinema-note">72% aged 18–34 · UK / Global English</p>
               </div>
             </div>
           </div>
