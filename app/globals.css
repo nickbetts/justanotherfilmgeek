@@ -1046,39 +1046,22 @@ a { color: inherit; text-decoration: none; }
 .reel-sprockets {
   display: block;
   width: 100%;
-  height: 28px;
-  background-color: #0a0a0a;
-  background-image: repeating-linear-gradient(
-    90deg,
-    transparent 0px,
-    transparent 10px,
-    #0a0a0a 10px,
-    #0a0a0a 14px,
-    transparent 14px,
-    transparent 16px
-  ),
-  repeating-linear-gradient(
-    90deg,
-    #111 0px,
-    #111 4px,
-    #000 4px,
-    #000 18px,
-    #111 18px,
-    #111 32px
+  height: 30px;
+  /* strip is noticeably lighter than the surrounding black */
+  background-color: #1e1e1e;
+  /* hole = pure black centre + faint white rim so it reads as punched through */
+  background-image: radial-gradient(
+    ellipse 12px 9px at 50% 50%,
+    #000 65%,
+    rgba(255,255,255,0.18) 70%,
+    rgba(255,255,255,0.04) 75%,
+    transparent 80%
   );
-  /* punched holes: centred rectangles repeating every 32px */
-  background-image:
-    radial-gradient(ellipse 13px 10px at 50% 50%,
-      #000 99%, transparent 100%
-    );
-  background-size: 32px 100%;
+  background-size: 30px 100%;
   background-repeat: repeat-x;
-  background-position: 8px 50%;
-  border: none;
+  background-position: 0 50%;
   position: relative;
   z-index: 2;
-  font-size: 0;
-  line-height: 0;
 }
 
 /* hide the legacy span elements if any remain */
