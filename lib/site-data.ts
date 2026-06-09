@@ -11,6 +11,7 @@ export type BestContent = {
   likes: string;
   comments: string;
   url: string;
+  thumbnailUrl?: string;
 };
 
 export type TrendPoint = {
@@ -108,14 +109,41 @@ const fallbackData: SiteData = {
   ]
 };
 
+type OEmbedData = {
+  thumbnail_url?: string;
+};
+
+async function getVideoThumbnail(videoUrl: string): Promise<string | undefined> {
+  // oEmbed only works on individual video URLs, not profile pages
+  if (!videoUrl.includes("/video/")) return undefined;
+  try {
+    const res = await fetch(
+      `https://www.tiktok.com/oembed?url=${encodeURIComponent(videoUrl)}`,
+      { next: { revalidate: 3600 } }
+    );
+    if (!res.ok) return undefined;
+    const data = (await res.json()) as OEmbedData;
+    return data.thumbnail_url;
+  } catch {
+    return undefined;
+  }
+}
+
 export async function getSiteData(): Promise<SiteData> {
-  // Official TikTok Display API requires OAuth and approved app scopes.
-  // Keep this switch to quickly move from fallback data to server-fetched values.
   const useLiveTikTok = process.env.USE_LIVE_TIKTOK === "true";
 
-  if (!useLiveTikTok) {
-    return fallbackData;
+  if (useLiveTikTok) {
+    // Wire TikTok Display API responses here after app review approval
   }
 
-  return fallbackData;
+  // Enrich each video entry with a live thumbnail via TikTok oEmbed (server-side)
+  // Update the url fields in bestContent to real video URLs to activate thumbnails
+  const enrichedContent = await Promise.all(
+    fallbackData.bestContent.map(async (video) => ({
+      ...video,
+      thumbnailUrl: await getVideoThumbnail(video.url)
+    }))
+  );
+
+  return { ...fallbackData, bestContent: enrichedContent };
 }

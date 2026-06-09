@@ -8,7 +8,7 @@ export default function TermsPage() {
   return (
     <main className="shell policy-shell">
       <h1>Terms of Service</h1>
-      <section className="policy">
+      <section className="policy-block">
         <p>
           This website is a media pack intended for brand and collaboration evaluation. By using
           this site, you agree to use it for lawful informational purposes only.
@@ -25,7 +25,9 @@ export default function TermsPage() {
         </p>
       </section>
       <p>
-        <Link href="/">Back to media kit</Link>
+        <Link className="policy-back" href="/">
+        ← Back to media kit
+      </Link>
       </p>
     </main>
   );

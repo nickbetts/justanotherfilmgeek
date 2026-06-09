@@ -32,7 +32,7 @@ export function CookieNotice() {
         <button className="button" type="button" onClick={accept}>
           Accept
         </button>
-        <Link className="button ghost" href="/privacy">
+        <Link className="button outline" href="/privacy">
           Learn more
         </Link>
       </div>

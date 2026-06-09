@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Space_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Space_Mono, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -13,14 +13,20 @@ const spaceMono = Space_Mono({
   variable: "--font-space"
 });
 
+const bebasNeue = Bebas_Neue({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-bebas"
+});
+
 export const metadata: Metadata = {
-  title: "Creator Media Kit | justanotherfilmgeek",
+  title: "@justanotherfilmgeek — Creator Media Kit",
   description:
-    "TikTok creator one-pager media pack with stats, best content, audience fit, and collaboration details.",
+    "TikTok creator media pack for @justanotherfilmgeek — film reviews, franchise lore, viral rankings.",
   openGraph: {
-    title: "Creator Media Kit | justanotherfilmgeek",
+    title: "@justanotherfilmgeek — Creator Media Kit",
     description:
-      "TikTok creator one-pager media pack with stats, best content, audience fit, and collaboration details.",
+      "TikTok creator media pack for @justanotherfilmgeek — film reviews, franchise lore, viral rankings.",
     type: "website"
   }
 };
@@ -32,7 +38,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${bricolage.variable} ${spaceMono.variable}`}>{children}</body>
+      <body className={`${bricolage.variable} ${spaceMono.variable} ${bebasNeue.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }

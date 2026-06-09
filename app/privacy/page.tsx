@@ -8,7 +8,7 @@ export default function PrivacyPage() {
   return (
     <main className="shell policy-shell">
       <h1>Privacy Policy</h1>
-      <section className="policy">
+      <section className="policy-block">
         <p>
           This minisite is a public media pack for the TikTok creator
           <strong> @justanotherfilmgeek</strong>. It displays profile and campaign information for
@@ -30,7 +30,9 @@ export default function PrivacyPage() {
         </p>
       </section>
       <p>
-        <Link href="/">Back to media kit</Link>
+        <Link className="policy-back" href="/">
+        ← Back to media kit
+      </Link>
       </p>
     </main>
   );
