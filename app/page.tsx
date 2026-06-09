@@ -71,7 +71,7 @@ export default async function Home() {
               </div>
               <div className="hero-kicker">
                 <span className="kicker-line" />
-                TikTok Creator · Media Pack 2025
+                TikTok Creator · Media Pack 2026
               </div>
               <h1 className="hero-headline" data-text="Just Another&#10;Film Geek">
                 Just Another<br />
@@ -135,7 +135,7 @@ export default async function Home() {
               })}
             </div>
           </div>
-          <div className="reel-counter" aria-hidden="true">REEL 01 · JAFG · 2025</div>
+          <div className="reel-counter" aria-hidden="true">REEL 01 · JAFG · 2026</div>
           </div>
         </section>
 
