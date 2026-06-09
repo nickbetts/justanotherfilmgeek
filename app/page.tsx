@@ -50,7 +50,19 @@ export default async function Home() {
         </nav>
 
         {/* ── HERO ─────── */}
-        <section className="hero shell">
+        <section className="hero">
+          {/* Video background */}
+          <video
+            className="hero-video-bg"
+            src="/videoplayback.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-hidden="true"
+          />
+          <div className="hero-video-overlay" aria-hidden="true" />
+          <div className="shell hero-content">
           <div className="hero-grid">
             <div>
               <div className="hero-kicker">
@@ -118,6 +130,7 @@ export default async function Home() {
                 );
               })}
             </div>
+          </div>
           </div>
         </section>
 
