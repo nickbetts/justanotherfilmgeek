@@ -193,9 +193,7 @@ export default async function Home() {
           {/* Full-bleed reel strip */}
           <div className="reel-strip-wrapper">
             {/* sprocket holes row */}
-            <div className="reel-sprockets top" aria-hidden="true">
-              {Array.from({ length: 32 }).map((_, i) => <span key={i} className="sprocket-hole" />)}
-            </div>
+            <div className="reel-sprockets top" aria-hidden="true" />
 
             <div className="reel-track">
               {d.bestContent.map((item, i) => (
@@ -238,9 +236,7 @@ export default async function Home() {
             </div>
 
             {/* sprocket holes row */}
-            <div className="reel-sprockets bottom" aria-hidden="true">
-              {Array.from({ length: 32 }).map((_, i) => <span key={i} className="sprocket-hole" />)}
-            </div>
+            <div className="reel-sprockets bottom" aria-hidden="true" />
           </div>
         </section>
 
