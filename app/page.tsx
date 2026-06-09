@@ -332,7 +332,7 @@ export default async function Home() {
               </div>
               <div className="credits-block">
                 <p className="credits-role">Collabs &amp; Enquiries</p>
-                <p className="credits-name">{d.profile.email}</p>
+                <a className="credits-name credits-email" href={`mailto:${d.profile.email}`}>{d.profile.email}</a>
               </div>
               <p className="credits-fin">★ FIN ★</p>
               <p className="credits-copyright">© {new Date().getFullYear()} Just Another Film Geek. All rights reserved.</p>
