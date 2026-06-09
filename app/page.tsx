@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { getSiteData } from "@/lib/site-data";
+import { getSiteData } from "../lib/site-data";
+import { CookieNotice } from "../components/cookie-notice";
 
 export default async function Home() {
   const siteData = await getSiteData();
@@ -10,6 +11,7 @@ export default async function Home() {
       <div className="noise" aria-hidden="true" />
       <header className="topbar shell">
         <p className="brand">JUST ANOTHER FILM GEEK</p>
+        <p className="marquee">Now showing: creator collabs, film fandom, and viral watchlists</p>
         <a
           className="button ghost"
           href={siteData.profile.tiktokUrl}
@@ -23,6 +25,7 @@ export default async function Home() {
       <main className="shell">
         <section className="hero section">
           <div>
+            <p className="badge">Comic-Con energy • Cinema-nerd authority</p>
             <p className="eyebrow">TikTok Creator Media Pack</p>
             <h1>{siteData.profile.name}</h1>
             <p className="lead">{siteData.profile.bio}</p>
@@ -35,7 +38,7 @@ export default async function Home() {
               </a>
             </div>
           </div>
-          <aside className="hero-card">
+          <aside className="hero-card reel-card">
             <p>Account</p>
             <h2>{siteData.profile.handle}</h2>
             <ul className="quick-list">
@@ -59,6 +62,12 @@ export default async function Home() {
           <div className="section-heading">
             <h2>Performance Snapshot</h2>
             <p>Mix of live counters + creator analytics highlights for brand outreach.</p>
+          </div>
+          <div className="chip-row">
+            <span className="chip">Film News</span>
+            <span className="chip">Reviews</span>
+            <span className="chip">Franchise Lore</span>
+            <span className="chip">Red Carpet Reactions</span>
           </div>
           <div className="stats-grid">
             {siteData.stats.map((stat, idx) => (
@@ -153,6 +162,7 @@ export default async function Home() {
           <Link href="/terms">Terms of Service</Link>
         </nav>
       </footer>
+      <CookieNotice />
     </>
   );
 }

@@ -38,14 +38,14 @@ export type SiteData = {
 
 const fallbackData: SiteData = {
   profile: {
-    name: "Nick Betts",
+    name: "Just Another Film Geek",
     handle: "@justanotherfilmgeek",
     bio: "Film-first storyteller creating viral movie content, interviews, and culture moments for entertainment audiences.",
     category: "Film + Entertainment",
     market: "UK / Global English",
     replyTime: "< 24 hours",
     tiktokUrl: "https://www.tiktok.com/@justanotherfilmgeek",
-    email: "hello@example.com"
+    email: "collabs@justanotherfilmgeek.com"
   },
   stats: [
     { label: "Followers", value: "85.4K", source: "Live ready" },
