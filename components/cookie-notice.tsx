@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const STORAGE_KEY = "jafg_cookie_notice_accepted";
 
-export function CookieNotice() {
+export default function CookieNotice() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -29,10 +29,10 @@ export function CookieNotice() {
         or ad tracking is enabled.
       </p>
       <div className="cookie-actions">
-        <button className="button" type="button" onClick={accept}>
+        <button className="btn btn-primary" type="button" onClick={accept}>
           Accept
         </button>
-        <Link className="button outline" href="/privacy">
+        <Link className="btn btn-ghost" href="/privacy">
           Learn more
         </Link>
       </div>

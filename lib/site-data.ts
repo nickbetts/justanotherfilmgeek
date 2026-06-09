@@ -46,7 +46,7 @@ const fallbackData: SiteData = {
     market: "UK / Global English",
     replyTime: "< 24 hours",
     tiktokUrl: "https://www.tiktok.com/@justanotherfilmgeek",
-    email: "collabs@justanotherfilmgeek.com"
+    email: "ross@justanotherfilmgeek.com"
   },
   stats: [
     { label: "Followers", value: "85.4K", source: "Live ready" },

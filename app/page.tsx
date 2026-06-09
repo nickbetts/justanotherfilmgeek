@@ -1,212 +1,256 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getSiteData } from "../lib/site-data";
-import { CookieNotice } from "../components/cookie-notice";
+import CookieNotice from "../components/cookie-notice";
+
+export const revalidate = 3600;
 
 export default async function Home() {
-  const siteData = await getSiteData();
-  const year = new Date().getFullYear();
+  const d = await getSiteData();
+  const maxVal = Math.max(...d.trend.map((g) => g.value));
 
-  const tickerItems = [
-    ...siteData.stats.map((s) => ({ label: s.label, value: s.value })),
-    { label: "Handle", value: siteData.profile.handle },
-    { label: "Category", value: siteData.profile.category }
-  ];
+  const followersLabel = d.stats.find((s) => s.label === "Followers")?.value ?? "85.4K";
+
+  const tickerItems = d.stats.map((s) => ({ label: s.label, val: s.value }));
 
   return (
     <>
+      {/* Aurora background */}
+      <div className="aurora" aria-hidden="true">
+        <div className="aurora-orb aurora-orb-1" />
+        <div className="aurora-orb aurora-orb-2" />
+        <div className="aurora-orb aurora-orb-3" />
+      </div>
+
+      {/* Film grain */}
       <div className="grain" aria-hidden="true" />
 
-      {/* ── TOPBAR ──────────────────────────────────── */}
-      <header className="topbar shell">
-        <p className="brand">
-          JUST ANOTHER <span>FILM</span> GEEK
-        </p>
-        <div className="topbar-actions">
-          <span className="follower-chip">{siteData.stats[0].value} followers</span>
-          <a className="button" href={siteData.profile.tiktokUrl} target="_blank" rel="noreferrer">
-            ▶ TikTok
-          </a>
-        </div>
-      </header>
-
-      {/* ── HERO ──────────────────────────────────── */}
-      <section className="hero">
-        <div className="hero-inner shell">
-          <div className="hero-text">
-            <p className="hero-eyebrow">TikTok Creator · Media Pack 2025</p>
-            <h1 className="hero-title">
-              Just
-              <br />
-              Another
-              <br />
-              <em>Film Geek</em>
-            </h1>
-            <p className="hero-bio">{siteData.profile.bio}</p>
-            <div className="cta-row">
-              <a className="button" href={`mailto:${siteData.profile.email}`}>
-                Book a Campaign
-              </a>
-              <a className="button outline" href="#analytics">
-                View Stats
-              </a>
-            </div>
-            <div className="hero-meta-row">
-              <span className="handle-chip">{siteData.profile.handle}</span>
-              <span className="meta-dot" aria-hidden="true">·</span>
-              <span className="meta-text">{siteData.profile.category}</span>
-              <span className="meta-dot" aria-hidden="true">·</span>
-              <span className="meta-text">{siteData.profile.market}</span>
+      <div className="page-wrapper">
+        {/* ── NAV ─────── */}
+        <nav className="topbar">
+          <div className="shell topbar-inner">
+            <p className="brand">
+              Just Another <span className="brand-accent">Film</span> Geek
+            </p>
+            <div className="topbar-right">
+              <span className="pill">
+                <span className="pill-dot" />
+                {followersLabel} Followers
+              </span>
+              <Link
+                href={d.profile.tiktokUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+              >
+                ▶ TikTok
+              </Link>
             </div>
           </div>
+        </nav>
 
-          {/* Staggered poster rail */}
-          <div className="poster-rail" aria-hidden="true">
-            {siteData.bestContent.slice(0, 3).map((video, i) => (
-              <div key={video.title} className="poster-rail-item">
-                {video.thumbnailUrl ? (
-                  <Image
-                    src={video.thumbnailUrl}
-                    alt=""
-                    fill
-                    sizes="160px"
-                    style={{ objectFit: "cover" }}
-                    unoptimized
-                  />
-                ) : (
-                  <div className="poster-placeholder">
-                    <span className="play-icon">▶</span>
-                    <span>{String(i + 1).padStart(2, "0")}</span>
-                  </div>
-                )}
+        {/* ── HERO ─────── */}
+        <section className="hero shell">
+          <div className="hero-grid">
+            <div>
+              <div className="hero-kicker">
+                <span className="kicker-line" />
+                TikTok Creator · Media Pack 2025
               </div>
+              <h1 className="hero-headline">
+                Just Another<br />
+                <span className="hero-headline-accent">Film Geek</span>
+              </h1>
+              <p className="hero-body">
+                {d.profile.bio}
+              </p>
+              <div className="hero-actions">
+                <a href={`mailto:${d.profile.email}`} className="btn btn-primary">
+                  Get in touch
+                </a>
+                <Link
+                  href={d.profile.tiktokUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-ghost"
+                >
+                  ↗ @justanotherfilmgeek
+                </Link>
+              </div>
+              <div className="hero-meta">
+                <div className="hero-meta-item">
+                  <span className="meta-label">Followers</span>
+                  <span className="meta-value">{followersLabel}</span>
+                </div>
+                <div className="hero-meta-item">
+                  <span className="meta-label">Niche</span>
+                  <span className="meta-value">Film &amp; TV</span>
+                </div>
+                <div className="hero-meta-item">
+                  <span className="meta-label">Market</span>
+                  <span className="meta-value">{d.profile.market}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Poster stack */}
+            <div className="poster-stack" aria-hidden="true">
+              {[0, 1, 2].map((i) => {
+                const item = d.bestContent[i];
+                return (
+                  <div className="poster-item" key={i}>
+                    {item?.thumbnailUrl ? (
+                      <Image
+                        src={item.thumbnailUrl}
+                        alt={item.title}
+                        fill
+                        sizes="200px"
+                        style={{ objectFit: "cover" }}
+                        unoptimized
+                      />
+                    ) : (
+                      <div className="poster-bg">
+                        <div className="poster-play">▶</div>
+                        <span>{String(i + 1).padStart(2, "0")}</span>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* ── TICKER ─────── */}
+        <div className="ticker-wrap">
+          <div className="ticker-track">
+            {[...tickerItems, ...tickerItems].map((item, i) => (
+              <span className="ticker-item" key={i}>
+                {item.label} <span className="ticker-val">{item.val}</span>
+              </span>
             ))}
           </div>
         </div>
-      </section>
 
-      {/* ── TICKER ──────────────────────────────────── */}
-      <div className="ticker-strip" aria-hidden="true">
-        <div className="ticker-track">
-          {[...tickerItems, ...tickerItems].map((item, i) => (
-            <div className="ticker-item" key={i}>
-              <strong>{item.value}</strong>
-              <span>{item.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+        {/* ── STATS ─────── */}
+        <section className="section">
+          <div className="shell">
+            <p className="section-eyebrow">By the Numbers</p>
+            <h2 className="section-heading">The Stats</h2>
+            <p className="section-sub">Real numbers, no inflated vanity metrics.</p>
 
-      {/* ── STATS ──────────────────────────────────── */}
-      <section id="analytics" className="section shell">
-        <div className="section-header">
-          <p className="section-label">Box Office Numbers</p>
-          <h2 className="section-title">Performance Snapshot</h2>
-          <p className="section-sub">Key metrics for brand collaboration decisions.</p>
-        </div>
-        <div className="stats-grid">
-          {siteData.stats.map((stat) => (
-            <div className="stat-card" key={stat.label}>
-              <span className="stat-label">{stat.label}</span>
-              <span className="stat-value">{stat.value}</span>
-              <span className="stat-source">{stat.source}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── VIDEO POSTERS ──────────────────────────────────── */}
-      <section className="section shell">
-        <div className="section-header">
-          <p className="section-label">Content Library</p>
-          <h2 className="section-title">Now Streaming</h2>
-          <p className="section-sub">
-            Top performing videos by views, engagement and shareability. Update URLs in{" "}
-            <code>lib/site-data.ts</code> with real TikTok video links to load live thumbnails.
-          </p>
-        </div>
-        <div className="video-poster-grid">
-          {siteData.bestContent.map((video) => (
-            <a
-              key={video.title}
-              className="video-poster"
-              href={video.url}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`Watch: ${video.title}`}
-            >
-              {video.thumbnailUrl ? (
-                <Image
-                  src={video.thumbnailUrl}
-                  alt=""
-                  fill
-                  sizes="(max-width: 960px) 50vw, 25vw"
-                  style={{ objectFit: "cover" }}
-                  unoptimized
-                />
-              ) : (
-                <div className="video-poster-placeholder">
-                  <div className="play-icon">▶</div>
-                  <span>Watch on TikTok</span>
+            <div className="bento-grid">
+              {d.stats.map((stat) => (
+                <div className="bento-card" key={stat.label}>
+                  <span className="bento-label">{stat.label}</span>
+                  <span className="bento-value">{stat.value}</span>
+                  {stat.label === "Avg Engagement" && (
+                    <span className="bento-tag">Above avg</span>
+                  )}
                 </div>
-              )}
-              <div className="video-poster-overlay">
-                <p className="video-poster-title">{video.title}</p>
-                <div className="video-poster-meta">
-                  <span>{video.views} views</span>
-                  <span>·</span>
-                  <span>{video.likes} likes</span>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
+              ))}
+            </div>
+          </div>
+        </section>
 
-      {/* ── MOMENTUM + AUDIENCE ──────────────────────────────────── */}
-      <section className="section shell">
-        <div className="split">
-          <div>
-            <p className="section-label">Monthly Views</p>
-            <h2 className="section-title">Momentum</h2>
-            <div className="growth-chart" style={{ marginTop: "1.5rem" }}>
-              {siteData.trend.map((point) => (
-                <div className="growth-row" key={point.month}>
-                  <span className="growth-month">{point.month}</span>
-                  <div className="growth-bar-track">
-                    <div className="growth-bar-fill" style={{ width: `${point.value}%` }} />
+        {/* ── BEST CONTENT ─────── */}
+        <section className="section">
+          <div className="shell">
+            <p className="section-eyebrow">Top Performing</p>
+            <h2 className="section-heading">Best Videos</h2>
+            <p className="section-sub">Highest-viewed content with strong save and share rates.</p>
+
+            <div className="film-grid">
+              {d.bestContent.map((item, i) => (
+                <Link
+                  key={i}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="film-card"
+                >
+                  {item.thumbnailUrl ? (
+                    <Image
+                      src={item.thumbnailUrl}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 880px) 50vw, 25vw"
+                      style={{ objectFit: "cover" }}
+                      unoptimized
+                    />
+                  ) : (
+                    <div className="film-card-bg">
+                      <div className="film-play">▶</div>
+                      <span>{String(i + 1).padStart(2, "0")}</span>
+                    </div>
+                  )}
+                  <div className="film-overlay">
+                    <p className="film-title">{item.title}</p>
+                    <div className="film-stats">
+                      <span>{item.views} views</span>
+                      <span>·</span>
+                      <span>{item.likes} likes</span>
+                    </div>
                   </div>
-                  <span className="growth-value">{point.label}</span>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
-          <div>
-            <p className="section-label">Who&rsquo;s Watching</p>
-            <h2 className="section-title">The Audience</h2>
-            <div className="audience-card" style={{ marginTop: "1.5rem" }}>
-              {siteData.audience.map((item) => (
-                <div className="audience-item" key={item}>
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── FOOTER ──────────────────────────────────── */}
-      <footer className="footer shell">
-        <p className="footer-copy">© {year} justanotherfilmgeek — All rights reserved</p>
-        <nav>
-          <Link href="/privacy">Privacy</Link>
-          <Link href="/terms">Terms</Link>
-          <a href={`mailto:${siteData.profile.email}`}>Contact</a>
-        </nav>
-      </footer>
+        {/* ── GROWTH + AUDIENCE ─────── */}
+        <section className="section">
+          <div className="shell">
+            <p className="section-eyebrow">Audience</p>
+            <h2 className="section-heading">Growth &amp; Demographics</h2>
+            <p className="section-sub">Consistent month-on-month growth since launch.</p>
+
+            <div className="two-col">
+              {/* Growth bar chart */}
+              <div className="chart-card">
+                {d.trend.map((point) => (
+                  <div className="chart-row" key={point.month}>
+                    <span className="chart-month">{point.month}</span>
+                    <div className="chart-track">
+                      <div
+                        className="chart-fill"
+                        style={{ width: `${(point.value / maxVal) * 100}%` }}
+                      />
+                    </div>
+                    <span className="chart-val">{point.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Audience snapshot */}
+              <div className="audience-card">
+                {d.audience.map((line, i) => (
+                  <div className="audience-row" key={i}>
+                    <span className="audience-arrow">▸</span>
+                    <span>{line}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── FOOTER ─────── */}
+        <footer className="shell">
+          <div className="footer">
+            <p className="footer-copy">
+              © {new Date().getFullYear()} @justanotherfilmgeek ·{" "}
+              <a href={`mailto:${d.profile.email}`}>{d.profile.email}</a>
+            </p>
+            <nav className="footer-nav">
+              <Link href="/privacy">Privacy</Link>
+              <Link href="/terms">Terms</Link>
+            </nav>
+          </div>
+        </footer>
+      </div>
 
       <CookieNotice />
     </>
   );
 }
-

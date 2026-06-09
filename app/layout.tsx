@@ -1,22 +1,16 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Space_Mono, Bebas_Neue } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 
-const bricolage = Bricolage_Grotesque({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-bricolage"
+  variable: "--font-inter"
 });
 
-const spaceMono = Space_Mono({
+const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-space"
-});
-
-const bebasNeue = Bebas_Neue({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-bebas"
+  weight: ["400", "600", "700", "800", "900"],
+  variable: "--font-outfit"
 });
 
 export const metadata: Metadata = {
@@ -38,9 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${bricolage.variable} ${spaceMono.variable} ${bebasNeue.variable}`}>
-        {children}
-      </body>
+      <body className={`${inter.variable} ${outfit.variable}`}>{children}</body>
     </html>
   );
 }
