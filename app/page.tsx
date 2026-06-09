@@ -150,6 +150,12 @@ export default async function Home() {
           </div>
         </div>
 
+        <div className="clapper-divider" aria-hidden="true">
+          <span>SCENE 01</span>
+          <span>TAKE 01</span>
+          <span>INT · JAFG HQ</span>
+        </div>
+
         {/* ── STATS ─────── */}
         <section className="section">
           <div className="shell">
@@ -171,40 +177,56 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* ── BEST CONTENT ─────── */}
-        <section className="section">
+        <div className="clapper-divider" aria-hidden="true">
+          <span>SCENE 02</span>
+          <span>TAKE 01</span>
+          <span>EXT · BEST CONTENT</span>
+        </div>
+
+        {/* ── BEST CONTENT — film reel ─────── */}
+        <section className="section reel-section">
           <div className="shell">
             <p className="section-eyebrow">Top Performing</p>
             <h2 className="section-heading">Best Videos</h2>
             <p className="section-sub">Highest-viewed content with strong save and share rates.</p>
+          </div>
 
-            <div className="film-grid">
+          {/* Full-bleed reel strip */}
+          <div className="reel-strip-wrapper">
+            {/* sprocket holes row */}
+            <div className="reel-sprockets top" aria-hidden="true">
+              {Array.from({ length: 32 }).map((_, i) => <span key={i} className="sprocket-hole" />)}
+            </div>
+
+            <div className="reel-track">
               {d.bestContent.map((item, i) => (
                 <Link
                   key={i}
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="film-card"
+                  className="reel-card"
                 >
+                  <div className="reel-scene-num" aria-hidden="true">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
                   {item.thumbnailUrl ? (
                     <Image
                       src={item.thumbnailUrl}
                       alt={item.title}
                       fill
-                      sizes="(max-width: 880px) 50vw, 25vw"
+                      sizes="320px"
                       style={{ objectFit: "cover" }}
                       unoptimized
                     />
                   ) : (
                     <div className="film-card-bg">
                       <div className="film-play">▶</div>
-                      <span>{String(i + 1).padStart(2, "0")}</span>
                     </div>
                   )}
-                  <div className="film-overlay">
-                    <p className="film-title">{item.title}</p>
-                    <div className="film-stats">
+                  <div className="reel-card-overlay">
+                    <p className="reel-card-title">{item.title}</p>
+                    <div className="reel-card-stats">
                       <span>{item.views} views</span>
                       <span>·</span>
                       <span>{item.likes} likes</span>
@@ -213,8 +235,19 @@ export default async function Home() {
                 </Link>
               ))}
             </div>
+
+            {/* sprocket holes row */}
+            <div className="reel-sprockets bottom" aria-hidden="true">
+              {Array.from({ length: 32 }).map((_, i) => <span key={i} className="sprocket-hole" />)}
+            </div>
           </div>
         </section>
+
+        <div className="clapper-divider" aria-hidden="true">
+          <span>SCENE 03</span>
+          <span>TAKE 01</span>
+          <span>INT · AUDIENCE INSIGHTS</span>
+        </div>
 
         {/* ── GROWTH + AUDIENCE ─────── */}
         <section className="section">
@@ -249,6 +282,44 @@ export default async function Home() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── CREDITS ROLL ─────── */}
+        <section className="credits-section" aria-label="End credits">
+          <div className="credits-roll">
+            <div className="credits-inner">
+              <p className="credits-studio">A JUST ANOTHER FILM GEEK PRODUCTION</p>
+              <p className="credits-title-card">@justanotherfilmgeek</p>
+              <div className="credits-block">
+                <p className="credits-role">Creator &amp; Host</p>
+                <p className="credits-name">Ross</p>
+              </div>
+              <div className="credits-block">
+                <p className="credits-role">Content Formats</p>
+                <p className="credits-name">Film Reviews · Franchise Lore · Exit Polls</p>
+                <p className="credits-name">Hot Takes · Rankings · Director Breakdowns</p>
+              </div>
+              <div className="credits-block">
+                <p className="credits-role">Platform</p>
+                <p className="credits-name">TikTok</p>
+              </div>
+              <div className="credits-block">
+                <p className="credits-role">Ideal Brand Partnerships</p>
+                <p className="credits-name">Cinema · Streaming · Consumer Tech</p>
+                <p className="credits-name">Lifestyle · Entertainment · Gaming</p>
+              </div>
+              <div className="credits-block">
+                <p className="credits-role">Market</p>
+                <p className="credits-name">UK / Global English</p>
+              </div>
+              <div className="credits-block">
+                <p className="credits-role">Collabs &amp; Enquiries</p>
+                <p className="credits-name">{d.profile.email}</p>
+              </div>
+              <p className="credits-fin">★ FIN ★</p>
+              <p className="credits-copyright">© {new Date().getFullYear()} Just Another Film Geek. All rights reserved.</p>
             </div>
           </div>
         </section>

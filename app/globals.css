@@ -1028,3 +1028,288 @@ a { color: inherit; text-decoration: none; }
   .footer { flex-direction: column; align-items: flex-start; }
   .cookie-banner { left: 0.75rem; right: 0.75rem; bottom: 0.75rem; }
 }
+
+/* ── CLAPPERBOARD DIVIDER ──────────────────────────── */
+.clapper-divider {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  position: relative;
+  overflow: hidden;
+  background: repeating-linear-gradient(
+    -52deg,
+    #000 0px,
+    #000 18px,
+    #fff 18px,
+    #fff 36px
+  );
+}
+
+.clapper-divider::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(5,5,7,0.62);
+}
+
+.clapper-divider span {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+
+/* ── FILM REEL SECTION ─────────────────────────────── */
+.reel-section { padding-bottom: 0; }
+.reel-section .shell { padding-bottom: 2rem; }
+
+.reel-strip-wrapper {
+  position: relative;
+  background: #000;
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Sprocket rows */
+.reel-sprockets {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  height: 26px;
+  background: #0a0a0a;
+  padding: 0 12px;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.sprocket-hole {
+  display: inline-block;
+  width: 16px;
+  height: 12px;
+  border-radius: 3px;
+  background: #000;
+  border: 1.5px solid #2a2a2a;
+  flex-shrink: 0;
+  margin-right: 16px;
+}
+
+/* Scrollable reel track */
+.reel-track {
+  display: flex;
+  gap: 6px;
+  padding: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) #111;
+  background: #050505;
+  cursor: grab;
+}
+
+.reel-track:active { cursor: grabbing; }
+
+.reel-track::-webkit-scrollbar { height: 4px; }
+.reel-track::-webkit-scrollbar-track { background: #111; }
+.reel-track::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+/* Individual reel card */
+.reel-card {
+  position: relative;
+  width: 260px;
+  aspect-ratio: 9/16;
+  flex-shrink: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  display: block;
+  background: var(--surface-2);
+  border: 1px solid #222;
+  transition: transform 300ms cubic-bezier(0.34,1.3,0.64,1), box-shadow 300ms, border-color 300ms;
+}
+
+.reel-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.9), 0 0 40px var(--accent-glow);
+  border-color: rgba(232,52,26,0.5);
+  z-index: 5;
+}
+
+/* Scene number stamp */
+.reel-scene-num {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 4;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.5);
+  background: rgba(0,0,0,0.6);
+  padding: 0.2rem 0.45rem;
+  border-radius: 3px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.reel-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.05) 65%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem 0.85rem;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 250ms, transform 250ms;
+}
+
+.reel-card:hover .reel-card-overlay { opacity: 1; transform: translateY(0); }
+
+.reel-card-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #fff;
+  margin: 0 0 0.4rem;
+}
+
+.reel-card-stats {
+  display: flex;
+  gap: 0.4rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+/* ── CREDITS ROLL ──────────────────────────────────── */
+.credits-section {
+  background: #000;
+  border-top: 1px solid #1a1a1a;
+  padding: 0;
+  height: 460px;
+  overflow: hidden;
+  position: relative;
+}
+
+.credits-section::before,
+.credits-section::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.credits-section::before {
+  top: 0;
+  background: linear-gradient(to bottom, #000, transparent);
+}
+
+.credits-section::after {
+  bottom: 0;
+  background: linear-gradient(to top, #000, transparent);
+}
+
+.credits-roll {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.credits-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2.5rem;
+  padding: 60px 2rem 120px;
+  animation: credits-scroll 28s linear infinite;
+}
+
+.credits-inner:hover { animation-play-state: paused; }
+
+@keyframes credits-scroll {
+  0%   { transform: translateY(100%); }
+  100% { transform: translateY(-100%); }
+}
+
+.credits-studio {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin: 0;
+}
+
+.credits-title-card {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0;
+  line-height: 1;
+}
+
+.credits-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.credits-role {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin: 0;
+}
+
+.credits-name {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.75);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.credits-fin {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 2rem;
+  letter-spacing: 0.4em;
+  color: rgba(255,255,255,0.15);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.credits-copyright {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.2);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* responsive tweaks */
+@media (max-width: 880px) {
+  .reel-card { width: 200px; }
+}
