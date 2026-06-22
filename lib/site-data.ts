@@ -55,7 +55,7 @@ const fallbackData: SiteData = {
     { label: "Avg Engagement", value: "32.1%", source: "Calculated" },
     { label: "Top Video Views", value: "1.6M", source: "Analytics" },
     { label: "Profile Views (30D)", value: "13.5K", source: "Analytics" },
-    { label: "Campaign CTR", value: "3.6%", source: "Media kit" },
+    { label: "Shares", value: "63.2K+", source: "Analytics" },
     { label: "Audience 18-34", value: "70.7%", source: "Media kit" }
   ],
   bestContent: [
