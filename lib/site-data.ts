@@ -62,10 +62,10 @@ const fallbackData: SiteData = {
     {
       title: "Top 10 Plot Twists in 60 Seconds",
       summary: "Fast-cut countdown format with strong completion and share velocity.",
-      views: "1.1M",
+      views: "1.6M",
       likes: "144K",
       comments: "2.3K",
-      url: "https://www.tiktok.com/@justanotherfilmgeek"
+      url: "https://www.tiktok.com/@justanotherfilmgeek/video/7649144940961877270"
     },
     {
       title: "New Release Reaction: Live Cinema Exit",
@@ -73,7 +73,7 @@ const fallbackData: SiteData = {
       views: "740K",
       likes: "88K",
       comments: "1.1K",
-      url: "https://www.tiktok.com/@justanotherfilmgeek"
+      url: "https://www.tiktok.com/@justanotherfilmgeek/video/7645685980837580054"
     },
     {
       title: "Director Breakdown: Visual Language",
@@ -81,7 +81,7 @@ const fallbackData: SiteData = {
       views: "530K",
       likes: "52K",
       comments: "860",
-      url: "https://www.tiktok.com/@justanotherfilmgeek"
+      url: "https://www.tiktok.com/@justanotherfilmgeek/video/7651019760280276246"
     },
     {
       title: "One-Minute Franchise Timeline",
@@ -89,7 +89,7 @@ const fallbackData: SiteData = {
       views: "410K",
       likes: "41K",
       comments: "640",
-      url: "https://www.tiktok.com/@justanotherfilmgeek"
+      url: "https://www.tiktok.com/@justanotherfilmgeek/video/7645062624945671446"
     },
     {
       title: "Hot Take: Overrated Films of 2024",
@@ -97,7 +97,7 @@ const fallbackData: SiteData = {
       views: "380K",
       likes: "37K",
       comments: "1.8K",
-      url: "https://www.tiktok.com/@justanotherfilmgeek"
+      url: "https://www.tiktok.com/@justanotherfilmgeek/video/7631225322423291158"
     },
     {
       title: "Best Cinematography Shots Ranked",
@@ -105,7 +105,7 @@ const fallbackData: SiteData = {
       views: "295K",
       likes: "31K",
       comments: "520",
-      url: "https://www.tiktok.com/@justanotherfilmgeek"
+      url: "https://www.tiktok.com/@justanotherfilmgeek/video/7612385868225039638"
     },
     {
       title: "Every Marvel Phase 1 Film in 90s",
@@ -113,7 +113,7 @@ const fallbackData: SiteData = {
       views: "270K",
       likes: "28K",
       comments: "470",
-      url: "https://www.tiktok.com/@justanotherfilmgeek"
+      url: "https://www.tiktok.com/@justanotherfilmgeek/video/7602262227747458326"
     },
     {
       title: "Cinema vs Streaming: The Debate",
@@ -121,7 +121,31 @@ const fallbackData: SiteData = {
       views: "240K",
       likes: "24K",
       comments: "1.3K",
-      url: "https://www.tiktok.com/@justanotherfilmgeek"
+      url: "https://www.tiktok.com/@justanotherfilmgeek/video/7603081068496932118"
+    },
+    {
+      title: "Film Ranking Deep Dive",
+      summary: "High engagement ranking format with strong comment debate.",
+      views: "220K",
+      likes: "22K",
+      comments: "980",
+      url: "https://www.tiktok.com/@justanotherfilmgeek/video/7649802543953956099"
+    },
+    {
+      title: "Scene Breakdown: Iconic Moments",
+      summary: "Frame-by-frame analysis format; strong saves and shares.",
+      views: "200K",
+      likes: "19K",
+      comments: "430",
+      url: "https://www.tiktok.com/@justanotherfilmgeek/video/7651675240430390550"
+    },
+    {
+      title: "Underrated Gem You Need to Watch",
+      summary: "Discovery recommendation format — high follow-through rate.",
+      views: "185K",
+      likes: "17K",
+      comments: "360",
+      url: "https://www.tiktok.com/@justanotherfilmgeek/video/7648608249549262102"
     }
   ],
   trend: [
