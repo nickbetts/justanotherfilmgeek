@@ -59,6 +59,12 @@ export default async function Home() {
               >
                 ▶ TikTok
               </Link>
+              <a
+                href={`mailto:${d.profile.email}`}
+                className="btn btn-primary topbar-contact-mobile"
+              >
+                ✉️ Get in touch
+              </a>
             </div>
           </div>
         </nav>

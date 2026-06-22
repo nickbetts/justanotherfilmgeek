@@ -135,6 +135,9 @@ a { color: inherit; text-decoration: none; }
   gap: 0.75rem;
 }
 
+/* mobile contact button — hidden on desktop */
+.topbar-contact-mobile { display: none; }
+
 .pill {
   display: inline-flex;
   align-items: center;
@@ -1027,6 +1030,11 @@ a { color: inherit; text-decoration: none; }
   .film-grid { grid-template-columns: 1fr 1fr; }
   .footer { flex-direction: column; align-items: flex-start; }
   .cookie-banner { left: 0.75rem; right: 0.75rem; bottom: 0.75rem; }
+
+  /* topbar: hide pill + TikTok link, show contact CTA */
+  .pill { display: none; }
+  .topbar-right .btn-primary:not(.topbar-contact-mobile) { display: none; }
+  .topbar-contact-mobile { display: inline-flex; }
 }
 
 /* ── FILM REEL SECTION ─────────────────────────────── */
