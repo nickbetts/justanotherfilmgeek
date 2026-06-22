@@ -49,14 +49,14 @@ const fallbackData: SiteData = {
     email: "ross@justanotherfilmgeek.com"
   },
   stats: [
-    { label: "Followers", value: "85.4K", source: "Live ready" },
-    { label: "Total Likes", value: "221.6K", source: "Live ready" },
-    { label: "30D Video Views", value: "2.4M", source: "Analytics" },
-    { label: "Avg Engagement", value: "8.2%", source: "Calculated" },
-    { label: "Top Video Views", value: "1.1M", source: "Analytics" },
-    { label: "Profile Views (30D)", value: "11.2K", source: "Analytics" },
+    { label: "Followers", value: "6K+", source: "Live ready" },
+    { label: "Total Likes", value: "266K", source: "Live ready" },
+    { label: "30D Video Views", value: "1.2M", source: "Analytics" },
+    { label: "Avg Engagement", value: "32.1%", source: "Calculated" },
+    { label: "Top Video Views", value: "1.6M", source: "Analytics" },
+    { label: "Profile Views (30D)", value: "13.5K", source: "Analytics" },
     { label: "Campaign CTR", value: "3.6%", source: "Media kit" },
-    { label: "Audience 18-34", value: "72%", source: "Media kit" }
+    { label: "Audience 18-34", value: "70.7%", source: "Media kit" }
   ],
   bestContent: [
     {

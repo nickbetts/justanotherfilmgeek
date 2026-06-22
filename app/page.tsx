@@ -271,10 +271,10 @@ export default async function Home() {
                 </div>
                 <div className="cinema-rows">
                   {[
-                    { label: "18–24", pct: 45, cls: "accent" },
+                    { label: "18–24", pct: 44, cls: "accent" },
                     { label: "25–34", pct: 27, cls: "amber" },
                     { label: "35–44", pct: 18, cls: "muted" },
-                    { label: "45+",   pct: 10, cls: "dim" },
+                    { label: "45+",   pct: 11, cls: "dim" },
                   ].map(({ label, pct, cls }) => {
                     const total = 22;
                     const filled = Math.round((pct / 100) * total);
@@ -296,7 +296,7 @@ export default async function Home() {
                     );
                   })}
                 </div>
-                <p className="cinema-note">72% aged 18–34 · UK / Global English</p>
+                <p className="cinema-note">70.7% aged 18–34 · UK / Global English</p>
               </div>
             </div>
           </div>
