@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getSiteData } from "../lib/site-data";
 import CookieNotice from "../components/cookie-notice";
+import ReelCard from "../components/reel-card";
 
 export const revalidate = 3600;
 
@@ -197,41 +198,15 @@ export default async function Home() {
 
             <div className="reel-track">
               {d.bestContent.map((item, i) => (
-                <div className="reel-frame" key={i}>
-                <Link
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="reel-card"
-                >
-                  <div className="reel-scene-num" aria-hidden="true">
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-                  {item.thumbnailUrl ? (
-                    <Image
-                      src={item.thumbnailUrl}
-                      alt={item.title}
-                      fill
-                      sizes="320px"
-                      style={{ objectFit: "cover" }}
-                      unoptimized
-                    />
-                  ) : (
-                    <div className="film-card-bg">
-                      <div className="film-play">▶</div>
-                    </div>
-                  )}
-                  <div className="reel-card-overlay">
-                    <p className="reel-card-title">{item.title}</p>
-                    <div className="reel-card-stats">
-                      <span>{item.views} views</span>
-                      <span>·</span>
-                      <span>{item.likes} likes</span>
-                    </div>
-                  </div>
-                </Link>
-                <p className="reel-frame-label" aria-hidden="true">#{String(i + 1).padStart(2, "0")} · {item.views}</p>
-                </div>
+                <ReelCard
+                  key={i}
+                  index={i}
+                  url={item.url}
+                  title={item.title}
+                  views={item.views}
+                  likes={item.likes}
+                  thumbnailUrl={item.thumbnailUrl}
+                />
               ))}
             </div>
 
