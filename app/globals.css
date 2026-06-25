@@ -459,7 +459,7 @@ a { color: inherit; text-decoration: none; }
 .hero-headline {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(4.2rem, 8.4vw, 9.1rem);
+  font-size: clamp(3.7rem, 6.9vw, 7.8rem);
   line-height: 0.9;
   letter-spacing: -0.03em;
   text-transform: uppercase;
@@ -522,7 +522,7 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   gap: 1.1rem;
   align-items: flex-end;
-  height: 560px;
+  height: 575px;
   flex-shrink: 0;
 }
 
@@ -545,9 +545,9 @@ a { color: inherit; text-decoration: none; }
   pointer-events: none;
 }
 
-.poster-item:nth-child(1) { width: 198px; height: 495px; transform: rotate(-4deg) translateY(28px); }
-.poster-item:nth-child(2) { width: 222px; height: 560px; z-index: 2; transform: rotate(0.5deg); box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 40px var(--accent-glow); }
-.poster-item:nth-child(3) { width: 188px; height: 465px; transform: rotate(3.5deg) translateY(36px); }
+.poster-item:nth-child(1) { width: 216px; height: 520px; transform: rotate(-4deg) translateY(28px); }
+.poster-item:nth-child(2) { width: 238px; height: 575px; z-index: 2; transform: rotate(0.5deg); box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 40px var(--accent-glow); }
+.poster-item:nth-child(3) { width: 206px; height: 500px; transform: rotate(3.5deg) translateY(36px); }
 
 .poster-item:hover { transform: rotate(0deg) translateY(-14px) scale(1.05) !important; z-index: 10; box-shadow: 0 30px 70px rgba(0,0,0,0.8), 0 0 50px var(--accent-glow) !important; }
 
@@ -1012,10 +1012,10 @@ a { color: inherit; text-decoration: none; }
 /* ── RESPONSIVE ─────────────────────────────── */
 @media (max-width: 1024px) {
   .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .poster-stack { height: 368px; justify-content: center; }
-  .poster-item:nth-child(1) { width: 134px; height: 320px; }
-  .poster-item:nth-child(2) { width: 152px; height: 368px; }
-  .poster-item:nth-child(3) { width: 128px; height: 302px; }
+  .poster-stack { height: 390px; justify-content: center; }
+  .poster-item:nth-child(1) { width: 146px; height: 336px; }
+  .poster-item:nth-child(2) { width: 166px; height: 390px; }
+  .poster-item:nth-child(3) { width: 140px; height: 316px; }
 }
 
 @media (max-width: 880px) {
