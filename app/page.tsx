@@ -10,7 +10,7 @@ export default async function Home() {
   const d = await getSiteData();
   const maxVal = Math.max(...d.trend.map((g) => g.value));
 
-  const followersLabel = d.stats.find((s) => s.label === "Followers")?.value ?? "85.4K";
+  const followersLabel = d.stats.find((s) => s.label === "Followers")?.value ?? "10K+";
 
   const tickerItems = d.stats.map((s) => ({ label: s.label, val: s.value }));
 

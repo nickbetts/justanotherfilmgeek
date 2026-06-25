@@ -41,7 +41,7 @@ const fallbackData: SiteData = {
   profile: {
     name: "Just Another Film Geek",
     handle: "@justanotherfilmgeek",
-    bio: "Film-first storyteller creating viral movie content, interviews, and culture moments for entertainment audiences.",
+    bio: "Film-first storyteller creating viral movie content, cinematic trivia, and culture moments for entertainment audiences. As well as attending UK Comic Cons, Film/TV premieres and geek merch highlights.",
     category: "Film + Entertainment",
     market: "UK / Global English",
     replyTime: "< 24 hours",
@@ -49,10 +49,10 @@ const fallbackData: SiteData = {
     email: "ross@justanotherfilmgeek.com"
   },
   stats: [
-    { label: "Followers", value: "6K+", source: "Live ready" },
-    { label: "Total Likes", value: "266K", source: "Live ready" },
+    { label: "Followers", value: "10K+", source: "Live ready" },
+    { label: "Total Likes", value: "270K+", source: "Live ready" },
     { label: "30D Video Views", value: "1.2M", source: "Analytics" },
-    { label: "Avg Engagement", value: "32.1%", source: "Calculated" },
+    { label: "Avg Engagement", value: "25.8%", source: "Calculated" },
     { label: "Top Video Views", value: "1.6M", source: "Analytics" },
     { label: "Profile Views (30D)", value: "13.5K", source: "Analytics" },
     { label: "Shares", value: "63.2K+", source: "Analytics" },
