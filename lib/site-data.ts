@@ -60,6 +60,14 @@ const fallbackData: SiteData = {
   ],
   bestContent: [
     {
+      title: "Latest Drop: Comic-Con Reel",
+      summary: "Newest upload featured first in the reel.",
+      views: "NEW",
+      likes: "NEW",
+      comments: "NEW",
+      url: "https://www.tiktok.com/@justanotherfilmgeek/video/7655445330791648534"
+    },
+    {
       title: "Top 10 Plot Twists in 60 Seconds",
       summary: "Fast-cut countdown format with strong completion and share velocity.",
       views: "1.6M",
