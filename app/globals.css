@@ -833,6 +833,15 @@ a { color: inherit; text-decoration: none; }
   padding: 1.6rem;
 }
 
+.chart-title {
+  margin: 0 0 1rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
 .chart-row {
   display: grid;
   grid-template-columns: 42px 1fr 56px;

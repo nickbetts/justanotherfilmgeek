@@ -157,12 +157,12 @@ const fallbackData: SiteData = {
     }
   ],
   trend: [
-    { month: "Jan", value: 26, label: "0.4M" },
-    { month: "Feb", value: 92, label: "2.0M" },
-    { month: "Mar", value: 68, label: "1.4M" },
-    { month: "Apr", value: 74, label: "1.6M" },
-    { month: "May", value: 81, label: "1.8M" },
-    { month: "Jun", value: 100, label: "2.4M" }
+    { month: "Jan", value: 6, label: "0.6M" },
+    { month: "Feb", value: 11, label: "1.1M" },
+    { month: "Mar", value: 17, label: "1.7M" },
+    { month: "Apr", value: 25, label: "2.5M" },
+    { month: "May", value: 35, label: "3.5M" },
+    { month: "Jun", value: 42, label: "4.2M" }
   ],
   audience: [
     "52% women / 48% men",

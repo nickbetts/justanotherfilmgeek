@@ -231,6 +231,7 @@ export default async function Home() {
             <div className="two-col">
               {/* Growth bar chart */}
               <div className="chart-card">
+                <p className="chart-title">Monthly Video Views</p>
                 {d.trend.map((point) => (
                   <div className="chart-row" key={point.month}>
                     <span className="chart-month">{point.month}</span>
