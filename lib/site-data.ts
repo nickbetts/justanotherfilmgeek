@@ -76,20 +76,20 @@ const fallbackData: SiteData = {
       url: "https://www.tiktok.com/@justanotherfilmgeek/video/7649144940961877270"
     },
     {
-      title: "New Release Reaction: Live Cinema Exit",
-      summary: "Street-style vox pop format, brand-safe and highly remixable.",
-      views: "740K",
-      likes: "88K",
-      comments: "1.1K",
-      url: "https://www.tiktok.com/@justanotherfilmgeek/video/7645685980837580054"
-    },
-    {
       title: "Director Breakdown: Visual Language",
       summary: "Educational explainer with strong saves and repeat views.",
       views: "530K",
       likes: "52K",
       comments: "860",
       url: "https://www.tiktok.com/@justanotherfilmgeek/video/7651019760280276246"
+    },
+    {
+      title: "New Release Reaction: Live Cinema Exit",
+      summary: "Street-style vox pop format, brand-safe and highly remixable.",
+      views: "740K",
+      likes: "88K",
+      comments: "1.1K",
+      url: "https://www.tiktok.com/@justanotherfilmgeek/video/7645685980837580054"
     },
     {
       title: "One-Minute Franchise Timeline",
