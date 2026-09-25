@@ -49,16 +49,40 @@ const fallbackData: SiteData = {
     email: "ross@justanotherfilmgeek.com"
   },
   stats: [
-    { label: "Followers", value: "19K+", source: "Live ready" },
-    { label: "Total Likes", value: "400K+", source: "Live ready" },
-    { label: "30D Video Views", value: "1M", source: "Analytics" },
-    { label: "Engagement Rate (2026)", value: "6.65%", source: "Calculated" },
-    { label: "2026 Video Views", value: "7.1M", source: "Analytics" },
-    { label: "Profile Views (2026)", value: "22K", source: "Analytics" },
-    { label: "Shares", value: "74.4K+", source: "Analytics" },
-    { label: "Audience 18-34", value: "59.5%", source: "Media kit" }
+    { label: "Followers", value: "20K+", source: "Live ready" },
+    { label: "Total Likes", value: "490K+", source: "Live ready" },
+    { label: "30D Video Views", value: "2.1M", source: "Analytics" },
+    { label: "Engagement Rate", value: "12.5%", source: "Calculated" },
+    { label: "2026 Video Views", value: "9.3M", source: "Analytics" },
+    { label: "Profile Views", value: "26.1K", source: "Analytics" },
+    { label: "Profile Shares", value: "79.1K", source: "Analytics" },
+    { label: "Audience (18 - 34)", value: "72.9%", source: "Media kit" }
   ],
   bestContent: [
+    {
+      title: "Video 1",
+      summary: "Latest top-performing content.",
+      views: "",
+      likes: "",
+      comments: "",
+      url: "https://www.tiktok.com/@justanotherfilmgeek/video/7682156764468382998"
+    },
+    {
+      title: "Video 2",
+      summary: "Latest top-performing content.",
+      views: "",
+      likes: "",
+      comments: "",
+      url: "https://www.tiktok.com/@justanotherfilmgeek/video/7688754077211086102"
+    },
+    {
+      title: "Video 3",
+      summary: "Latest top-performing content.",
+      views: "",
+      likes: "",
+      comments: "",
+      url: "https://www.tiktok.com/@justanotherfilmgeek/video/7682815760644754710"
+    },
     {
       title: "Video 1",
       summary: "Latest top-performing content.",
@@ -98,30 +122,6 @@ const fallbackData: SiteData = {
       likes: "",
       comments: "",
       url: "https://www.tiktok.com/@justanotherfilmgeek/video/7664316481156549890"
-    },
-    {
-      title: "Video 6",
-      summary: "High-performing film content.",
-      views: "",
-      likes: "",
-      comments: "",
-      url: "https://www.tiktok.com/@justanotherfilmgeek/video/7659116982419213590"
-    },
-    {
-      title: "Director Breakdown: Visual Language",
-      summary: "Educational explainer with strong saves and repeat views.",
-      views: "530K",
-      likes: "52K",
-      comments: "860",
-      url: "https://www.tiktok.com/@justanotherfilmgeek/video/7651019760280276246"
-    },
-    {
-      title: "Best Cinematography Shots Ranked",
-      summary: "Visual essay style — strong save rate, repeat views from film students.",
-      views: "295K",
-      likes: "31K",
-      comments: "520",
-      url: "https://www.tiktok.com/@justanotherfilmgeek/video/7612385868225039638"
     },
     {
       title: "Video 9",
