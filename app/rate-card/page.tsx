@@ -116,8 +116,8 @@ const terms = [
 
 export default async function RateCardPage() {
   const d = await getSiteData();
-  const followersLabel = d.stats.find((s) => s.label === "Followers")?.value ?? "20K+";
-  const engagementLabel = d.stats.find((s) => s.label === "Engagement Rate")?.value ?? "12.5%";
+  const followersLabel = d.stats.find((s) => s.label === "Followers")?.value ?? "21K+";
+  const engagementLabel = d.stats.find((s) => s.label === "Engagement Rate")?.value ?? "14.17%";
 
   return (
     <>
