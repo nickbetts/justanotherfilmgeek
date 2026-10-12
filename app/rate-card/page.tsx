@@ -52,7 +52,7 @@ const deliverables: Deliverable[] = [
     name: "Lifestyle Product Placement / Skit",
     usd: "$250",
     gbp: "£195",
-    desc: "30–45s organic placement — tech, snacks, merch, apparel — styled to fit the channel's humour and voice."
+    desc: "30–45s organic placement (tech, snacks, merch, apparel) styled to fit the channel's humour and voice."
   },
   {
     category: "UGC Asset Creation",
@@ -66,7 +66,7 @@ const deliverables: Deliverable[] = [
 const addons = [
   { name: "Spark Ads Authorization", fee: "+30%", desc: "30-day code to boost the post in TikTok Ads Manager." },
   { name: "Whitelisting / Dark Ad Rights", fee: "+50%", desc: "30-day rights to run paid through the creator handle." },
-  { name: "Cross-Platform Syndication", fee: "+30%", desc: "Per platform — Instagram Reels / YouTube Shorts." },
+  { name: "Cross-Platform Syndication", fee: "+30%", desc: "Per platform: Instagram Reels / YouTube Shorts." },
   { name: "Category Exclusivity", fee: "+35%", desc: "No competing titles or products for 30 days." },
   { name: "Rush Delivery", fee: "+25%", desc: "Under 48-hour turnaround." },
   { name: "Raw Footage Capture", fee: "+20%", desc: "B-roll or gameplay files handed over." }
@@ -78,7 +78,7 @@ const bundles = [
     usd: "$1,100",
     gbp: "£850",
     features: [
-      "1x dedicated pre-release hype video — trailer reaction, lore breakdown, or first look",
+      "1x dedicated pre-release hype video (trailer reaction, lore breakdown, or first look)",
       "1x opening weekend reaction / review video",
       "30-day Spark Ads code included for both posts",
       "Link in bio during premiere week"
@@ -170,7 +170,7 @@ export default async function RateCardPage() {
             <p className="section-eyebrow">Official Creator Rate Card · 2026</p>
             <h1 className="section-heading">Rate Card</h1>
             <p className="section-sub">
-              Partnership packages for {d.profile.name} — hosted by Ross on TikTok. Film culture,
+              Partnership packages for {d.profile.name}, hosted by Ross on TikTok. Film culture,
               franchise lore, pop culture, gaming &amp; lifestyle for high-intent, film-loving
               audiences.
             </p>
@@ -205,7 +205,7 @@ export default async function RateCardPage() {
             </div>
             <p className="rate-note">
               Average engagement rate of {engagementLabel} against an industry benchmark of 3–5%.
-              Demographic focus: {d.profile.market} — UK &amp; global English-speaking markets.
+              Demographic focus: {d.profile.market}.
             </p>
           </div>
         </section>
@@ -232,7 +232,7 @@ export default async function RateCardPage() {
               ))}
             </div>
             <p className="rate-note">
-              Happy to discuss budgets — if you have a figure in mind, get in touch and we can
+              Happy to discuss budgets. If you have a figure in mind, get in touch and we can
               shape a package around it.
             </p>
           </div>
@@ -312,7 +312,7 @@ export default async function RateCardPage() {
             <p className="section-eyebrow">Enquiries &amp; Booking</p>
             <h2 className="section-heading">Ready to Roll Cameras?</h2>
             <p className="section-sub rate-cta-sub">
-              Send over your brief or campaign idea — replies within {d.profile.replyTime}.
+              Send over your brief or campaign idea. Replies within {d.profile.replyTime}.
             </p>
             <div className="hero-actions rate-cta-actions">
               <a href={`mailto:${d.profile.email}`} className="btn btn-primary">
