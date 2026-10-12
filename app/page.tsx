@@ -51,6 +51,9 @@ export default async function Home() {
                 <span className="pill-dot" />
                 {followersLabel} Followers
               </span>
+              <Link href="/rate-card" className="btn btn-ghost topbar-rate">
+                🎬 Rate Card
+              </Link>
               <Link
                 href={d.profile.tiktokUrl}
                 target="_blank"
@@ -104,6 +107,9 @@ export default async function Home() {
                 <a href={`mailto:${d.profile.email}`} className="btn btn-primary">
                   Get in touch
                 </a>
+                <Link href="/rate-card" className="btn btn-ghost">
+                  🎬 Rate Card
+                </Link>
                 <Link
                   href={d.profile.tiktokUrl}
                   target="_blank"
@@ -278,7 +284,7 @@ export default async function Home() {
                     );
                   })}
                 </div>
-                <p className="cinema-note">70.7% aged 18–34 · UK / Global English</p>
+                <p className="cinema-note">72.9% aged 18–34 · UK / Global English</p>
               </div>
             </div>
           </div>
@@ -330,6 +336,7 @@ export default async function Home() {
               <a href={`mailto:${d.profile.email}`}>{d.profile.email}</a>
             </p>
             <nav className="footer-nav">
+              <Link href="/rate-card">Rate Card</Link>
               <Link href="/privacy">Privacy</Link>
               <Link href="/terms">Terms</Link>
             </nav>
